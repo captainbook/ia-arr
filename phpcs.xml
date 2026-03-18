@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ruleset name="ia-arr">
+    <description>Project PHPCS rules.</description>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <rule ref="PSR2"/>
+
+    <!-- Tests include fixture classes in the same file. -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+
+    <!-- Keep legacy line lengths as-is for now. -->
+    <rule ref="Generic.Files.LineLength">
+        <exclude-pattern>src/*</exclude-pattern>
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+</ruleset>

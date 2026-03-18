@@ -1,7 +1,6 @@
 <?php
 
 $aliases = [
-    
     Illuminate\Support\Arr::class => IlluminateAgnostic\Arr\Support\Arr::class,
     Illuminate\Support\Collection::class => IlluminateAgnostic\Arr\Support\Collection::class,
     Illuminate\Support\Carbon::class => IlluminateAgnostic\Arr\Support\Carbon::class,
@@ -15,10 +14,9 @@ $aliases = [
 ];
 
 foreach ($aliases as $illuminate => $tighten) {
-    if (
-        class_exists($illuminate) &&
-        !interface_exists($illuminate) &&
-        !trait_exists($illuminate)
+    if (class_exists($illuminate) &&
+        ! interface_exists($illuminate) &&
+        ! trait_exists($illuminate)
     ) {
         class_alias($illuminate, $tighten);
     }
